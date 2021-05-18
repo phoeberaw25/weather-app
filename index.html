@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <title>Homework week 2</title>
+    <title>Weather App</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -13,4 +13,130 @@
     />
     <link rel="stylesheet" href="src/styles.css" />
   </head>
+
+
+  <body>
+    <div class="container">
+      <h1>Weather app</h1>
+      <br />
+
+      <form id="search-form">
+        <label for="search-bar">Location:</label>
+        <input
+          type="text"
+          placeholder="Search for a city"
+          autocomplete="off"
+          autofocus="on"
+          id="city-input"
+        />
+
+        <input type="submit" value="Search" />
+        <button id="current-location">Use current location</button>
+      </form>
+
+      <br />
+
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title" id="city"></h4>
+              <p class="card-text" id="description"><br /></p>
+              <h5 id="temperature"></h5>
+              <p>
+                <a href="#" id="celsius-link">°C</a> |
+                <a href="#" id="fahrenheit-link">°F</a>
+              </p>
+
+              <h6 id="current-time"></h6>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+      <br />
+
+      <div class="row">
+        <div class="col-4">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Sunday</h5>
+              <p class="card-text">
+                🌧 <br />
+                14 | 7
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Monday</h5>
+              <p class="card-text">
+                🌧 <br />
+                11 | 10
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Tuesday</h5>
+              <p class="card-text">
+                ☁️ <br />
+                14 | 10
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+
+      <div class="row">
+        <div class="col-4">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Wednesday</h5>
+              <p class="card-text">
+                🌧 <br />
+                14 | 7
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Thursday</h5>
+              <p class="card-text">
+                🌧 <br />
+                10 | 4
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Friday</h5>
+              <p class="card-text">
+                ⛅️ <br />
+                8 | 3
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+
+      <footer>Deigned & coded by Phoebe Rawlings <br /></footer>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>
+
 </html>
