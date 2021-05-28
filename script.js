@@ -43,6 +43,9 @@ iconElement.setAttribute("alt",  response.data.main.temp);
 
 document.querySelector("#humidity").innerHTML = response.data.main.humidity;
 document.querySelector("#wind-speed").innerHTML = Math.round(response.data.wind.speed);
+
+celsiusTemperature = response.data.main.temp;
+
 }
 
 function searchCity(city) {
@@ -62,23 +65,31 @@ console.log(searchForm);
 searchForm.addEventListener("submit", handleSearch);
 
 // change between °C and °F
-// function convertToFahrenheit(event) {
-  // event.preventDefault();
-  // let temperatureElement = document.querySelector("#temperature");
-  // temperatureElement.innerHTML = 66;
-// }
+function convertToFahrenheit(event) {
+  event.preventDefault();
+  // remove the active class from celsius link
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheitTemp = (celsiusTemperature * 9) / 5 + 32;
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(fahrenheitTemp);
+}
 
-// function convertToCelsius(event) {
- //  event.preventDefault();
-  // let temperatureElement = document.querySelector("#temperature");
-  //temperatureElement.innerHTML = 18;
-// }
+function convertToCelsius(event) {
+ event.preventDefault();
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
 
-// let fahrenheitLink = document.querySelector("#fahrenheit-link");
-// fahrenheitLink.addEventListener("click", convertToFahrenheit);
+let celsiusTemperature = null;
 
-// let celsiusLink = document.querySelector("#celsius-link");
-// celsiusLink.addEventListener("click", convertToCelsius);
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", convertToFahrenheit);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", convertToCelsius);
 
 function currentLocation(position) {
   let latitude = position.coords.latitude;
