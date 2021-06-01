@@ -107,4 +107,26 @@ function GetcurrentLocation(event) {
 let currentLocationButton = document.querySelector("#current-location");
 currentLocationButton.addEventListener("click", GetcurrentLocation);
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  
+  let forecastHTML = `hello`;
+  forecastHTML = forecastHTML + `      <div class="weather-forecast" id="forecast">
+    <div class="row row-cols-1 row-cols-md-3 g-6">
+          <div class="col">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="weather-forecast-date">Sunday</h5>
+                <p class="card-text">
+                  🌧 <br />
+                  14 | 7
+                </p>
+              </div>
+            </div>`;
+  
+  forecastElement.innerHTML = forecastHTML;
+
+}
+
 searchCity("london");
+displayForecast();
