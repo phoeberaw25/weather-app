@@ -150,6 +150,7 @@ function displayForecast(response) {
                 alt=""
               />
               <br />
+              <p>${forecastday.weather[0].main} </p>
                   ${Math.round(forecastday.temp.max)}°C | <strong>${Math.round(forecastday.temp.min)}°C </strong>
                 </p>
               </div>
