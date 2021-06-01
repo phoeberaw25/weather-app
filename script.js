@@ -24,6 +24,20 @@ function formatDate(date) {
   return `${day} ${hours}:${minutes}`;
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000)
+  let day = date.getDay();
+  let days = ["Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"]
+
+  return days[day];
+}
+
 let dateElement = document.querySelector("#current-time");
 let currentTime = new Date();
 dateElement.innerHTML = formatDate(currentTime);
@@ -116,26 +130,33 @@ let currentLocationButton = document.querySelector("#current-location");
 currentLocationButton.addEventListener("click", GetcurrentLocation);
 
 function displayForecast(response) {
-  console.log(response.data.daily)
+  let forecast = response.data.daily;
+ 
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = ` <div class="row row-cols-1 row-cols-md-3 g-6"> `;
-  let days = ["Thursday", "Friday", "Saturday", "Sunday"]
-  days.forEach(function (day) {
+
+  forecast.forEach(function (forecastday, index) {
+    if (index < 6) {
   forecastHTML = forecastHTML +
    `    <div class="weather-forecast" id="forecast">
           <div class="col">
             <div class="card">
               <div class="card-body">
-                <h5 class="weather-forecast-date">${day}</h5>
+                <h5 class="weather-forecast-date">${formatDay(forecastday.dt)}</h5>
                 <p class="card-text">
-                  🌧 <br />
-                  14 | 7
+                <img
+                src="http://openweathermap.org/img/wn/${forecastday.weather[0].icon}@2x.png"
+                alt=""
+              />
+              <br />
+                  ${Math.round(forecastday.temp.max)}°C | <strong>${Math.round(forecastday.temp.min)}°C </strong>
                 </p>
               </div>
             </div>
         </div>
       </div>`
+    }
             });
 
   forecastHTML = forecastHTML + `</div>`
