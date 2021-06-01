@@ -87,31 +87,31 @@ let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSearch);
 
 // change between °C and °F
-function convertToFahrenheit(event) {
-  event.preventDefault();
+// function convertToFahrenheit(event) {
+//   event.preventDefault();
   // remove the active class from celsius link
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-  let fahrenheitTemp = (celsiusTemperature * 9) / 5 + 32;
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(fahrenheitTemp);
-}
+//   celsiusLink.classList.remove("active");
+ //  fahrenheitLink.classList.add("active");
+//   let fahrenheitTemp = (celsiusTemperature * 9) / 5 + 32;
+ // let temperatureElement = document.querySelector("#temperature");
+  // temperatureElement.innerHTML = Math.round(fahrenheitTemp);
+// }
 
-function convertToCelsius(event) {
- event.preventDefault();
-  celsiusLink.classList.add("active");
-  fahrenheitLink.classList.remove("active");
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
-}
+// function convertToCelsius(event) {
+ // event.preventDefault();
+  // celsiusLink.classList.add("active");
+  // fahrenheitLink.classList.remove("active");
+  // let temperatureElement = document.querySelector("#temperature");
+ //  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+// }
 
-let celsiusTemperature = null;
+// let celsiusTemperature = null;
 
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", convertToFahrenheit);
+// let fahrenheitLink = document.querySelector("#fahrenheit-link");
+// fahrenheitLink.addEventListener("click", convertToFahrenheit);
 
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", convertToCelsius);
+// let celsiusLink = document.querySelector("#celsius-link");
+// celsiusLink.addEventListener("click", convertToCelsius);
 
 function currentLocation(position) {
   let latitude = position.coords.latitude;
