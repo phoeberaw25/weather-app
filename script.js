@@ -109,21 +109,27 @@ currentLocationButton.addEventListener("click", GetcurrentLocation);
 
 function displayForecast() {
   let forecastElement = document.querySelector("#forecast");
-  
-  let forecastHTML = `hello`;
-  forecastHTML = forecastHTML + `      <div class="weather-forecast" id="forecast">
-    <div class="row row-cols-1 row-cols-md-3 g-6">
+
+  let forecastHTML = ` <div class="row row-cols-1 row-cols-md-3 g-6"> `;
+  let days = ["Thurday", "Friday", "Saturday", "Sunday"]
+  days.forEach(function (day) {
+  forecastHTML = forecastHTML +
+   `    <div class="weather-forecast" id="forecast">
           <div class="col">
             <div class="card">
               <div class="card-body">
-                <h5 class="weather-forecast-date">Sunday</h5>
+                <h5 class="weather-forecast-date">${day}</h5>
                 <p class="card-text">
                   🌧 <br />
                   14 | 7
                 </p>
               </div>
-            </div>`;
-  
+            </div>
+        </div>
+      </div>`
+            });
+
+  forecastHTML = forecastHTML + `</div>`
   forecastElement.innerHTML = forecastHTML;
 
 }
